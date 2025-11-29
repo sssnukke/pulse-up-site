@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <title>PulseUp — Современные IT-решения и интеграция ИИ</title>
+  <meta name="description" content="PulseUp — разработка сайтов, Telegram ботов, интеграция искусственного интеллекта и аналитика для автоматизации бизнес-процессов.">
+  <meta name="keywords" content="PulseUp, IT решения, ИИ, искусственный интеллект, Telegram боты, сайты, веб-приложения, аналитика, автоматизация бизнеса">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / соцсети -->
+  <meta property="og:title" content="PulseUp — Современные IT-решения и интеграция ИИ">
+  <meta property="og:description" content="Разрабатываем сайты, Telegram боты, интегрируем ИИ и создаем аналитику для автоматизации бизнес-процессов.">
+  <meta property="og:image" content="public/img.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pulseup.example.com">
+
+  <!-- Favicon -->
+  <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+
+  <style>
+    :root {
+      --green: #2ecc71;
+      --dark: #111;
+      --gray: #6b7280;
+      --bg: #f5f6f7;
+      --radius: 14px;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html, body {font-family: Inter, sans-serif; background: #fff; color: var(--dark); scroll-behavior: smooth;}
+    a {text-decoration: none; color: inherit; cursor: pointer;}
+    img {max-width: 100%; display: block;}
+    .container {width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+
+    /* Header */
+    .header {
+      padding: 22px 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header__inner {display: flex; justify-content: space-between; align-items: center;}
+    .nav {display: flex; gap: 30px;}
+
+    /* Hero с зелёным свечением */
+    .hero {
+      position: relative;
+      padding: 120px 0 80px 0;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #222, #333);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(46,204,113,0.6) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      filter: blur(120px);
+      z-index: 0;
+    }
+    .hero__inner {position: relative; z-index: 1;}
+    .hero__title {font-size: 92px; font-weight: 800; background: linear-gradient(90deg,#2ecc71,#42f59e); -webkit-background-clip: text; color: transparent;}
+    .hero__subtitle {font-size: 22px; margin-top: 20px;}
+    .hero__text {margin-top: 10px; color: #bfc5cc;}
+    .hero__btn {margin-top: 60px;}
+
+    .services {padding: 80px 0; background: #fff;}
+    .services__grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 40px;}
+
+    /* About секция */
+    .about {padding: 100px 0;}
+    .about__grid {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .about__content {flex: 1;}
+    .about__image {flex: 1;}
+    .about__image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 0 45px rgba(46,204,113,0.45);
+    }
+    .about__title {
+      color: #14532d;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .about__text-block {
+      background-color: #14532d;
+      border-radius: var(--radius);
+      padding: 20px 25px;
+      color: #e0f4e7;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {background: #fafafa; padding: 60px 0; margin-top: 40px; border-top: 1px solid #eee;}
+    .footer__grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px;}
+    .footer__copy {text-align: center; margin-top: 40px; color: #666; font-size: 14px;}
+
+    /* Адаптив */
+    @media (max-width: 900px) {
+      .hero__title {font-size: 64px;}
+      .about__grid {flex-direction: column;}
+      .hero {padding: 80px 0 60px 0;}
+      .hero__btn {margin-top: 40px;}
+      .about__text-block {margin-top: 20px;}
+    }
+    @media (max-width: 600px) {
+      .nav {display: none;}
+      .hero__title {font-size: 48px;}
+      .hero__btn {margin-top: 30px;}
+    }
+
+    /* Components */
+    .logo {font-size: 22px; font-weight: 700;}
+    .section-title {text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 40px;}
+    .btn {display: inline-block; padding: 12px 22px; border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: 0.2s;}
+    .btn--green {background: var(--green); color: #fff;}
+    .btn--green:hover {background: #28b765;}
+    .card {padding: 24px; background: #fff; border: 1px solid #eee; border-radius: var(--radius); box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: 0.2s;}
+    .card:hover {transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.08);}
+    .card__icon {font-size: 26px; margin-bottom: 10px;}
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal__bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
+      transition: opacity 0.3s ease;
+    }
+    .modal__window {
+      position: relative;
+      background: #fff;
+      padding: 32px;
+      border-radius: var(--radius);
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      transform: translateY(-30px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .modal.active .modal__window {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <div class="logo">PulseUp</div>
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="btn btn--green">Обсудить проект</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__title">PulseUp</h1>
+      <p class="hero__subtitle">Современные IT‑решения для вашего бизнеса</p>
+      <p class="hero__text">Разрабатываем цифровые продукты, которые работают на результат</p>
+      <a href="#services" class="btn btn--green hero__btn">Наши услуги</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="section-title">Наши услуги</h2>
+    <div class="container services__grid">
+      <div class="card">
+        <div class="card__icon">💬</div>
+        <h3>Telegram боты</h3>
+        <p>Автоматизация поддержки, рассылок и продаж через удобного бота.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">💻</div>
+        <h3>Сайты и веб‑приложения</h3>
+        <p>Быстрые, адаптивные и современные сайты для вашего бренда.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🤖</div>
+        <h3>Интеграция ИИ</h3>
+        <p>Внедрение искусственного интеллекта для сложных задач.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">📊</div>
+        <h3>Глубокая аналитика</h3>
+        <p>Преобразуем данные в понятные инсайты и отчёты.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about__grid">
+      <div class="about__content">
+        <h2 class="about__title">Воплощаем будущее с помощью ИИ</h2>
+        <div class="about__text-block">
+          <p>Мы используем передовые технологии искусственного интеллекта для создания решений, которые автоматизируют процессы и помогают бизнесу принимать точные решения.</p>
+          <p>Наша команда разрабатывает интеллектуальные алгоритмы и ИИ-модули, которые интегрируются в бизнес-процессы: от автоматизации рутинных задач до анализа данных. Мы создаём кастомные решения для компаний разных сфер, повышая эффективность и снижая издержки.</p>
+        </div>
+      </div>
+      <div class="about__image">
+        <img src="public/img.png" alt="Иллюстрация искусственного интеллекта для бизнеса">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts" class="footer">
+  <div class="container footer__grid">
+    <div>
+      <h3 class="logo">PulseUp</h3>
+      <p>Современные IT‑решения для вашего бизнеса</p>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <p>📧 afanaseevv@gmail.com</p>
+      <p>📞 +7 (914) 420‑04‑95</p>
+      <p>📍 Владивосток, Россия</p>
+    </div>
+    <div>
+      <h4>Соцсети</h4>
+      <br>
+      <a href="https://t.me/afanaseeev" target="_blank" style="display:inline-block; width:24px; height:24px;">
+        <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z" fill="#525252"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <p class="footer__copy">© 2025 PulseUp. Все права защищены.</p>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="contactModal">
+  <div class="modal__bg" id="modalBg"></div>
+  <div class="modal__window">
+    <h3>Связаться с нами</h3>
+    <br>
+    <p>📧 afanaseevv@gmail.com</p>
+    <p>📞 +7 (914) 420‑04‑95</p>
+    <p>📍 Владивосток, Россия</p>
+    <br>
+    <button class="btn btn--green" id="closeModal">Закрыть</button>
+  </div>
+</div>
+
+<script>
+  // Модалка
+  const modal = document.getElementById('contactModal');
+  const modalBg = document.getElementById('modalBg');
+  const closeBtn = document.getElementById('closeModal');
+  const openBtns = document.querySelectorAll('.btn--green[href="#contacts"]');
+
+  openBtns.forEach(btn => btn.addEventListener('click', e => {
+    e.preventDefault();
+    modal.style.pointerEvents = 'auto';
+    modal.classList.add('active');
+  }));
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    setTimeout(() => modal.style.pointerEvents = 'none', 300);
+  };
+
+  modalBg.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+</script>
+
+</body>
+</html>
