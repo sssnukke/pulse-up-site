@@ -10,7 +10,7 @@
   <meta name="keywords" content="PulseUp, IT решения, ИИ, искусственный интеллект, Telegram боты, сайты, веб-приложения, аналитика, автоматизация бизнеса">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph / соцсети -->
+  <!-- Open Graph -->
   <meta property="og:title" content="PulseUp — Современные IT-решения и интеграция ИИ">
   <meta property="og:description" content="Разрабатываем сайты, Telegram боты, интегрируем ИИ и создаем аналитику для автоматизации бизнес-процессов.">
   <meta property="og:image" content="public/img.png">
@@ -34,38 +34,13 @@
     .container {width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
 
     /* Header */
-    .header {
-      padding: 22px 0;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+    .header {padding: 22px 0; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10;}
     .header__inner {display: flex; justify-content: space-between; align-items: center;}
     .nav {display: flex; gap: 30px; flex-wrap: wrap;}
 
     /* Hero */
-    .hero {
-      position: relative;
-      padding: 120px 0 80px 0;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-      background: linear-gradient(135deg, #222, #333);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(46,204,113,0.6) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      filter: blur(120px);
-      z-index: 0;
-    }
+    .hero {position: relative; padding: 120px 0 80px 0; color: #fff; text-align: center; overflow: hidden; background: linear-gradient(135deg, #222, #333);}
+    .hero::before {content: ""; position: absolute; top: 50%; left: 50%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(46,204,113,0.6) 0%, transparent 70%); transform: translate(-50%, -50%); filter: blur(120px); z-index: 0;}
     .hero__inner {position: relative; z-index: 1;}
     .hero__title {font-size: 92px; font-weight: 800; background: linear-gradient(90deg,#2ecc71,#42f59e); -webkit-background-clip: text; color: transparent;}
     .hero__subtitle {font-size: 22px; margin-top: 20px;}
@@ -76,36 +51,14 @@
     .services {padding: 80px 0; background: #fff;}
     .services__grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 40px;}
 
-    /* About секция */
+    /* About */
     .about {padding: 100px 0;}
-    .about__grid {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
+    .about__grid {display: flex; gap: 40px; align-items: center;}
     .about__content {flex: 1;}
     .about__image {flex: 1;}
-    .about__image img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: 0 0 45px rgba(46,204,113,0.45);
-    }
-    .about__title {
-      color: #14532d;
-      font-size: 56px;
-      font-weight: 900;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-    .about__text-block {
-      background-color: #14532d;
-      border-radius: var(--radius);
-      padding: 20px 25px;
-      color: #e0f4e7;
-      line-height: 1.5;
-      font-size: 16px;
-    }
+    .about__image img {width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 0 45px rgba(46,204,113,0.45);}
+    .about__title {color: #14532d; font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 20px;}
+    .about__text-block {background-color: #14532d; border-radius: var(--radius); padding: 20px 25px; color: #e0f4e7; line-height: 1.5; font-size: 16px;}
 
     /* Footer */
     .footer {background: #fafafa; padding: 60px 0; margin-top: 40px; border-top: 1px solid #eee;}
@@ -115,7 +68,17 @@
     /* Components */
     .logo {font-size: 22px; font-weight: 700;}
     .section-title {text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 40px;}
-    .btn {display: inline-block; padding: 12px 22px; border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: 0.2s;}
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      outline: none; /* убираем обводку */
+      border: none; /* убираем рамку */
+    }
+    .btn:focus {outline: none;}
     .btn--green {background: var(--green); color: #fff;}
     .btn--green:hover {background: #28b765;}
     .card {padding: 24px; background: #fff; border: 1px solid #eee; border-radius: var(--radius); box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: 0.2s;}
@@ -123,46 +86,13 @@
     .card__icon {font-size: 26px; margin-bottom: 10px;}
 
     /* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 9999;
-    }
-    .modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .modal__bg {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(2px);
-      transition: opacity 0.3s ease;
-    }
-    .modal__window {
-      position: relative;
-      background: #fff;
-      padding: 32px;
-      border-radius: var(--radius);
-      max-width: 360px;
-      width: 100%;
-      text-align: center;
-      transform: translateY(-30px);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .modal.active .modal__window {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    .modal {position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 9999;}
+    .modal.active {opacity: 1; pointer-events: auto;}
+    .modal__bg {position: absolute; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); transition: opacity 0.3s ease;}
+    .modal__window {position: relative; background: #fff; padding: 32px; border-radius: var(--radius); max-width: 360px; width: 100%; text-align: center; transform: translateY(-30px); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;}
+    .modal.active .modal__window {transform: translateY(0); opacity: 1;}
 
-    /* Адаптив под телефоны, сохраняя расположение */
+    /* Адаптив */
     @media (max-width: 900px) {
       .hero__title {font-size: 64px;}
       .hero__subtitle {font-size: 20px;}
@@ -172,13 +102,8 @@
       .about__text-block {font-size: 14px; padding: 16px 20px;}
       .services__grid {grid-template-columns: 1fr;}
     }
-
     @media (max-width: 600px) {
-      /* Скрываем навигацию */
-      .nav {
-        display: none;
-      }
-
+      .nav {display: none;}
       .hero__title {font-size: 48px;}
       .hero__subtitle {font-size: 18px;}
       .hero__text {font-size: 13px;}
@@ -188,17 +113,9 @@
       .card {padding: 18px;}
       .card__icon {font-size: 22px;}
       .footer__grid {gap: 20px;}
-
-      /* About: картинка под текст */
-      .about__grid {
-        flex-direction: column;
-      }
-      .about__image {
-        order: 2; /* картинка после текста */
-        width: 100%;
-      }
+      .about__grid {flex-direction: column;}
+      .about__image {order: 2; width: 100%;}
     }
-
     @media (max-width: 400px) {
       .hero__title {font-size: 36px;}
       .hero__subtitle {font-size: 16px;}
@@ -220,7 +137,7 @@
       <a href="#about">О нас</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a href="#contacts" class="btn btn--green">Обсудить проект</a>
+    <button class="btn btn--green" id="openModalBtn">Обсудить проект</button>
   </div>
 </header>
 
@@ -292,7 +209,7 @@
       <h4>Соцсети</h4>
       <br>
       <a href="https://t.me/afanaseeev" target="_blank" style="display:inline-block; width:24px; height:24px;">
-        <svg class="t-sociallinks__svg" role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg role="presentation" width="24px" height="24px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z" fill="#525252"></path>
         </svg>
       </a>
@@ -311,4 +228,20 @@
     <p>📞 +7 (914) 420‑04‑95</p>
     <p>📍 Владивосток, Россия</p>
     <br>
-    <button class="btn btn--green" id
+    <button class="btn btn--green" id="closeModalBtn">Закрыть</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('contactModal');
+  const openBtn = document.getElementById('openModalBtn');
+  const closeBtn = document.getElementById('closeModalBtn');
+  const modalBg = document.getElementById('modalBg');
+
+  openBtn.addEventListener('click', () => modal.classList.add('active'));
+  closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+  modalBg.addEventListener('click', () => modal.classList.remove('active'));
+</script>
+
+</body>
+</html>
